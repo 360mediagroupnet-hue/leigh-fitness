@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Personal Trainer Maroochydore | Leigh Fitness | Goodlife Gym & Home Visits</title>
-<meta name="description" content="Personal training on the Sunshine Coast with Leigh, coaching since 2001. Train at Goodlife Maroochydore or at home. 12-week programs, one-on-one and small group. Call 0403 786 227.">
+<meta name="description" content="Personal training for over-50s and injuries on the Sunshine Coast with Leigh, coaching since 2001. Train at Goodlife Maroochydore or at home. 12-week programs, one-on-one and small group. Call 0403 786 227.">
 <link rel="canonical" href="https://physiqueleigh.com.au/">
 <meta property="og:title" content="Leigh Fitness | Strong at any age">
 <meta property="og:description" content="12-week personal training programs at Goodlife Maroochydore or at your place, with a coach who has trained people since 2001.">
@@ -22,7 +22,9 @@
   "url": "https://physiqueleigh.com.au/",
   "foundingDate": "2001-10",
   "address": {"@type": "PostalAddress", "addressLocality": "Maroochydore", "addressRegion": "QLD", "addressCountry": "AU"},
-  "areaServed": ["Maroochydore", "Mooloolaba", "Buderim", "Alexandra Headland", "Kuluin", "Sunshine Coast"]
+  "areaServed": ["Maroochydore", "Mooloolaba", "Buderim", "Alexandra Headland", "Kuluin", "Sunshine Coast"],
+  "sameAs": ["https://www.instagram.com/_leigh_fitness_/"],
+  "image": "https://physiqueleigh.com.au/images/leigh.jpg"
 }
 </script>
 <style>
@@ -120,15 +122,51 @@ section{position:relative}
 .hero .where{margin-top:22px;font-size:13px;color:var(--faint);display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
 .hero .where span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--orange);margin-right:8px;vertical-align:middle}
 
+/* Hero video */
+.hero{overflow:hidden}
+.hero .bgv{position:absolute;inset:0;z-index:0}
+.hero .bgv video{width:100%;height:100%;object-fit:cover;opacity:.32;filter:grayscale(.2)}
+.hero .bgv::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 70% at 50% 45%,#0000 0%,#000c 75%),linear-gradient(180deg,#0009 0%,#0000 30%,#0000 70%,#000 100%)}
+.hero > *:not(.bgv){position:relative;z-index:1}
+
+/* Specialties + the deal */
+.spec{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+@media (max-width:900px){.spec{grid-template-columns:1fr}}
+.spec article{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px}
+.spec .n{font-family:Anton,sans-serif;color:var(--orange);font-size:15px;letter-spacing:.08em}
+.spec h3{font-size:30px;margin:6px 0 10px}
+.spec p{margin:0 0 14px;color:var(--muted);font-size:15px}
+.spec q{display:block;font-size:14px;color:var(--peach);quotes:none;border-top:1px solid var(--line);padding-top:14px}
+.spec q b{display:block;margin-top:6px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.deal{margin-top:14px;border:1px solid var(--orange);border-radius:18px;padding:34px;display:grid;grid-template-columns:1fr 1.3fr;gap:30px;align-items:center;background:linear-gradient(120deg,#1a1206,#0c0c0c 60%)}
+.deal h3{font-size:clamp(30px,3.6vw,46px)}
+.deal p{margin:0;color:var(--muted);font-size:16px;max-width:60ch}
+.deal p b{color:var(--text)}
+@media (max-width:860px){.deal{grid-template-columns:1fr;gap:12px}}
+
+/* Reviews */
+.reviews{columns:3 320px;column-gap:14px;margin-top:40px}
+.rev{break-inside:avoid;margin:0 0 14px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+.rev.hl{border-color:var(--orange)}
+.rev blockquote{margin:0;font-size:15px;line-height:1.6;color:var(--text)}
+.rev cite{display:flex;justify-content:space-between;gap:10px;margin-top:14px;font-style:normal;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:600}
+.rev cite span{color:var(--faint);letter-spacing:.06em;text-transform:none;font-weight:500}
+.stars{color:var(--orange);letter-spacing:2px;font-size:14px;margin-bottom:10px}
+.rev.more{display:none}
+.reviews.all .rev.more{display:block}
+.revbtn{margin-top:20px}
+
 /* Video deck */
 .deck-wrap{position:relative;margin-top:36px}
-.deck{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 4 * 16px) / 5);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 4px 18px}
+.deck{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2 * 16px) / 2.6);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 4px 18px}
 .deck::-webkit-scrollbar{display:none}
-@media (max-width:1100px){.deck{grid-auto-columns:calc((100% - 2 * 16px) / 3.2)}}
-@media (max-width:640px){.deck{grid-auto-columns:calc((100% - 16px) / 2.2)}}
-.clip{scroll-snap-align:start;position:relative;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:var(--surface);border:0;padding:0;cursor:pointer;box-shadow:0 10px 24px #00000080}
+@media (max-width:900px){.deck{grid-auto-columns:calc((100% - 16px) / 1.6)}}
+@media (max-width:560px){.deck{grid-auto-columns:88%}}
+.clip{scroll-snap-align:start;position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--surface);border:0;padding:0;cursor:pointer;box-shadow:0 10px 24px #00000080}
 .clip video,.clip img{width:100%;height:100%;object-fit:cover}
-.clip .cap{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 12px;background:linear-gradient(transparent,#000000b3);color:#fff;font-size:12px;font-weight:600;text-align:center}
+.clip .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(transparent,#000000c4);color:#fff;font-size:13px;font-weight:600;text-align:left}
+.clip .play{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;background:var(--orange);color:var(--ink);display:grid;place-items:center}
+.clip .play svg{width:14px;height:14px}
 .clip .cap small{font-weight:400;opacity:.8}
 .clip.empty{background:repeating-linear-gradient(135deg,#141414 0 12px,#101010 12px 24px);box-shadow:none;border:1px dashed var(--line-strong);cursor:default;display:grid;place-items:center;color:var(--faint);font-size:13px}
 .arrow{position:absolute;top:calc(50% - 26px);width:40px;height:40px;border-radius:50%;background:var(--surface-2);color:var(--text);border:1px solid var(--line-strong);display:grid;place-items:center;cursor:pointer;z-index:2}
@@ -288,6 +326,8 @@ footer .legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m3 7 9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
 </svg>
 
@@ -295,6 +335,7 @@ footer .legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
   <a class="mark" href="#top" aria-label="Leigh Fitness, back to top">LEIGH</a>
   <a class="l" href="#training">Training</a>
   <a class="l" href="#programs">Programs</a>
+  <a class="l" href="#reviews">Reviews</a>
   <a class="l" href="#leigh">About Leigh</a>
   <span class="sep"></span>
   <a class="l" href="#contact">Contact</a>
@@ -306,21 +347,22 @@ footer .legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
 <main id="top">
 
   <section class="hero" aria-labelledby="hero-h">
+    <div class="bgv" aria-hidden="true"><video id="heroVid" muted loop playsinline preload="metadata" poster="images/hero-loop.jpg"></video></div>
     <p class="tag fade">Sweat · Train · Sleep · Repeat</p>
     <h1 id="hero-h" class="display reveal" data-split><span class="line">Strong at</span><span class="line o">any age.</span></h1>
-    <p class="sub fade">Personal training at Goodlife Maroochydore, or at your place.</p>
+    <p class="sub fade">Personal training for over-50s and anyone working around an old injury.<br>At Goodlife Maroochydore, or at your place.</p>
     <div class="ctas fade">
       <a class="pill pill-dark" href="#programs">See the programs<span class="dot"><svg><use href="#i-arrow"/></svg></span></a>
       <a class="pill pill-line" href="tel:+61403786227">Call Leigh<span class="dot"><svg><use href="#i-phone"/></svg></span></a>
     </div>
-    <p class="where fade"><span>Coaching since 2001</span><span>Goodlife Gym Maroochydore</span><span>Home visits</span></p>
+    <p class="where fade"><span>Coaching since 2001</span><span>Over-50s &amp; injuries</span><span>Goodlife &amp; home visits</span></p>
   </section>
 
   <section class="sec" id="training" aria-labelledby="train-h">
     <div class="wrap">
       <p class="eyebrow">In the gym</p>
       <h2 id="train-h" class="display reveal" data-split>Real sessions, filmed.</h2>
-      <p class="intro fade">Leigh and his clients, mid-workout at Goodlife. Tap any clip to watch it full screen with sound.</p>
+      <p class="intro fade">Leigh and his clients, mid-session at Goodlife Maroochydore. Tap any clip to watch it with sound.</p>
       <div class="deck-wrap fade">
         <button class="arrow prev" type="button" aria-label="Previous clips"><svg><use href="#i-left"/></svg></button>
         <div class="deck" id="deck"></div>
@@ -329,7 +371,39 @@ footer .legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
     </div>
   </section>
 
-  <section class="sec alt" aria-labelledby="how-h">
+  <section class="sec alt" id="who" aria-labelledby="who-h">
+    <div class="wrap">
+      <p class="eyebrow">Who Leigh trains best</p>
+      <h2 id="who-h" class="display reveal" data-split>Built for bodies that have lived a bit.</h2>
+      <p class="intro fade">Leigh trains all ages, but this is where two decades on the gym floor really counts.</p>
+      <div class="spec">
+        <article class="fade">
+          <p class="n">01</p>
+          <h3 class="display">Over 50</h3>
+          <p>Strength, balance and moving well, so you keep doing the things you love. No bootcamp, no fads, just what works, done consistently.</p>
+          <q>"10 years on, now 56 and still a pen pusher, what sore back!"<b>Scott W, client 10+ years</b></q>
+        </article>
+        <article class="fade">
+          <p class="n">02</p>
+          <h3 class="display">Working around injuries</h3>
+          <p>Old back, dodgy knee, a shoulder that's never been right. Leigh builds the plan around it and changes tack when it flares up.</p>
+          <q>"Knows how to work with injured and ageing bodies."<b>Jessica M, client since Brisbane</b></q>
+        </article>
+        <article class="fade">
+          <p class="n">03</p>
+          <h3 class="display">Starting again</h3>
+          <p>Haven't trained in years, or never really have. You start where you are, and Leigh teaches you the how as you go.</p>
+          <q>"When I started out I had no idea what I was doing."<b>Rae P, client 5 years</b></q>
+        </article>
+      </div>
+      <div class="deal fade">
+        <h3 class="display">Leigh gives you the formula.<br><span class="o">You do the work.</span></h3>
+        <p>The plan, the coaching, the eating, the accountability: that's Leigh's job. Turning up and putting in is yours. <b>Do the work and the results come. Skip it and they won't.</b> That's why the programs run for 12 weeks, so there's time for it to stick.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="how-h">
     <div class="wrap">
       <p class="eyebrow">How you train</p>
       <h2 id="how-h" class="display reveal" data-split>One coach. Your gym or your lounge room.</h2>
@@ -390,6 +464,7 @@ footer .legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
             <details class="qa"><summary>I haven't trained in years. Is this for me?</summary><p>Yes. A lot of Leigh's clients are starting late or coming back after a long break. The questionnaire means your plan starts where you are.</p></details>
             <details class="qa"><summary>Do I need a Goodlife membership?</summary><p>Only if you want to train at the gym. With home visits, you don't need a membership at all.</p></details>
             <details class="qa"><summary>Where do home visits cover?</summary><p>Maroochydore and the suburbs around it. Tell Leigh where you are and he'll let you know.</p></details>
+            <details class="qa"><summary>I'm over 50. Is that a problem?</summary><p>No, it's a speciality. A lot of Leigh's clients are in their 50s and 60s, and some have trained with him for over ten years.</p></details>
             <details class="qa"><summary>What if I have an old injury?</summary><p>Put it in the questionnaire and mention it on your first chat. Your plan works around it. If it needs a physio or doctor first, Leigh will tell you.</p></details>
             <details class="qa"><summary>Do you help with food?</summary><p>Yes. Nutrition advice is part of every program, because training on its own rarely gets the result.</p></details>
             <details class="qa"><summary>I just want a program to run myself. Can you do that?</summary><p>That's Self-Led. Leigh builds your program, trains you at the start, middle and end, and checks in each month while you run it.</p></details>
@@ -402,7 +477,7 @@ footer .legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
       <div class="programs" id="progs">
         <article class="prog hl">
           <h3 class="display">All In</h3>
-          <p class="who">Leigh does everything. The biggest change in 12 weeks.</p>
+          <p class="who">Leigh in your corner twice a week. Ready for summer in 12 weeks.</p>
           <div class="meter" aria-hidden="true"><i style="width:100%"></i></div><p class="share">You get all of it</p>
           <ul>
             <li>2 one-on-one sessions a week (24 sessions)</li>
@@ -464,8 +539,8 @@ footer .legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
   <section class="band" aria-label="Client review">
     <div class="wrap">
       <p class="eyebrow">What clients say</p>
-      <blockquote class="fade">"If you're after a new PT on the coast, you need to check out Leigh."</blockquote>
-      <cite>Ellen B.</cite>
+      <blockquote class="fade">"He has been my consistent PT for over 10 years and without question has improved my quality of life."</blockquote>
+      <cite>Scott W. · 56</cite>
     </div>
   </section>
 
@@ -473,7 +548,7 @@ footer .legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
     <div class="wrap">
       <p class="eyebrow">Your coach</p>
       <h2 id="leigh-h" class="display reveal" data-split>Getting people strong since 2001.</h2>
-      <p class="intro fade">Most trainers last two or three years in the job. Leigh has kept going since 2001, coaching everyone from people starting late to pro bodybuilders.</p>
+      <p class="intro fade">Most trainers last two or three years in the job. Leigh has kept going since 2001, coaching everyone from people starting late to pro bodybuilders, and specialising in over-50s and injuries.</p>
       <div class="tiles">
         <div class="portrait fade" id="portrait"><span>Photo of Leigh</span></div>
         <div class="tile fade"><h3 class="display">Long Beach, CA</h3><p class="k">2001</p><p>Starts coaching in California, training at studios in Hollywood and Redondo Beach.</p></div>
@@ -495,6 +570,31 @@ footer .legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
     </div>
   </section>
 
+  <section class="sec" id="reviews" aria-labelledby="rev-h">
+    <div class="wrap">
+      <p class="eyebrow">Reviews</p>
+      <h2 id="rev-h" class="display reveal" data-split>14 clients, in their words.</h2>
+      <p class="intro fade">Some have trained with Leigh for over ten years. Some followed him from Brisbane.</p>
+      <div class="reviews" id="revs">
+        <figure class="rev hl"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"Leigh is a 5-star personal trainer and quality human. He has been my consistent PT for over 10 years and without question has improved my quality of life. As an office worker I first started to train with Leigh to manage a sore back, improve posture, increase strength and my general health. 10 years on, now 56 and still a pen pusher, what sore back! Absolute value for what you receive - better health and happiness."</blockquote><cite>Scott W.<span>Client 10+ years</span></cite></figure>
+        <figure class="rev hl"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"I used to train with Leigh back in Brisbane about 20 years ago. I admired the way he focused on his clients but also had time to acknowledge the other regular gym members. When I decided to appoint a PT he was the logical choice. When I found out Leigh was moving to the Sunshine Coast I jumped at the chance to train with him again. I had been dealing with some annoying injuries which meant my fitness level had deteriorated and I needed to find ways around these ailments. Leigh has been amazing and is always willing to change tact if these issues flair up. I like that he can be so versatile and accommodating. If you are looking for a trainer who genuinely cares, has years of experience and knows how to work with injured and ageing bodies he is your PT. Give him a try... you have nothing to lose and everything to gain."</blockquote><cite>Jessica M.<span>Trained with Leigh in Brisbane and now on the Coast</span></cite></figure>
+        <figure class="rev hl"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"I've trained with Leigh for around 2 years and he transformed my body. I'm 42 and feel like I'm back in my 20s. He's always patient with me and works to suit my personal strengths and conscious of my injuries. I could not recommend him enough!"</blockquote><cite>Natasha S.<span>Client 2 years</span></cite></figure>
+        <figure class="rev"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"Leigh has been my personal trainer for the last 5 years and he has helped me develop my strength, health and mindset to where it is today. When I started out I had no idea what I was doing or what I was trying to achieve. Leigh took me under his wing and taught me everything there is to know about resistance training, functional training, how to sustain my desired look through nutrition and also how to keep a healthy mindset. I would not be where I am today without his constant support and encouragement. I would highly recommend choosing Leigh as your trainer!"</blockquote><cite>Rae P.<span>Client 5 years</span></cite></figure>
+        <figure class="rev"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"Leigh is a motivating and knowledgeable personal trainer, who works hard to ensure each of his clients get the most out of their sessions. He knows how to squeeze that extra little bit of effort so that you leave exhausted and happy. Perhaps more importantly, he is a wonderful well-rounded person. Each of his sessions is a delight. Leigh trained me for many years and trained my teenage boys. Brisbane's loss is Maroochydore's gain. I highly recommend Leigh."</blockquote><cite>Christian J.<span>Trained with Leigh for many years</span></cite></figure>
+        <figure class="rev"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"Leigh is such a fantastic PT! He always trains me in a way that pushes me to my limits but in the best way possible. I absolutely love training with Leigh, if you're after a new PT on the coast you need to check out Leigh."</blockquote><cite>Ellen B.</cite></figure>
+        <figure class="rev more"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"Leigh is an exceptional trainer that really knows his stuff! He provides some serious encouragement and pushes you to reach your goals. He was able to cater to my strengths and weaknesses and show me exercises important for my day to day function/activities. So thankful I found him!!!"</blockquote><cite>Lindsey M.</cite></figure>
+        <figure class="rev more"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"Couldn't recommend Leigh enough! He is an extremely experienced trainer that has helped me learn new techniques with my training. I have never felt better since training with him, my fitness and strength has increased significantly in the last few months since training with him on a weekly basis."</blockquote><cite>Jessica M.</cite></figure>
+        <figure class="rev more"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"Leigh is a PT that really knows his subject and definitely takes your training to a higher level! I enjoyed every session with Leigh and really recommend him as a PT!! He is so helpful with everything and has the ability to make even hard workouts enjoyable."</blockquote><cite>Anja M.</cite></figure>
+        <figure class="rev more"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"Leigh is everything you could want in a personal trainer. He is motivating, passionate and genuinely cares about his clients. You will leave your session feeling like you have worked the hardest you can, while also having a good laugh throughout!"</blockquote><cite>Eloise S.</cite></figure>
+        <figure class="rev more"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"Leigh always made me feel welcome coming to training and was very helpful in improving lifting techniques and pushing you that extra bit to achieve your goals. His workouts were always fun and brought the group together to work together."</blockquote><cite>Matthew V.<span>Small group</span></cite></figure>
+        <figure class="rev more"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"I've always enjoyed my sessions with Leigh, he pushes you, gets you doing exercises you wouldn't have thought of, all while having a laugh. I'm always sore the next day, but in the best way!"</blockquote><cite>Madeline F.</cite></figure>
+        <figure class="rev more"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"Amazing trainer with a huge amount of knowledge and sessions that always push me to my limits. Couldn't recommend his sessions enough."</blockquote><cite>Kristi P.</cite></figure>
+        <figure class="rev more"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>"Leigh was unbelievably great, enthusiastic, the training was well tailored for my level of fitness. I will be back!"</blockquote><cite>Treveen P.</cite></figure>
+      </div>
+      <button class="pill pill-line revbtn" type="button" id="moreRevs" aria-expanded="false">Read all 14<span class="dot"><svg><use href="#i-arrow"/></svg></span></button>
+    </div>
+  </section>
+
   <section class="contact" id="contact" aria-labelledby="contact-h">
     <div class="wrap cgrid">
       <div>
@@ -505,6 +605,7 @@ footer .legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
           <li><svg><use href="#i-phone"/></svg><a href="tel:+61403786227">0403 786 227</a></li>
           <li><svg><use href="#i-msg"/></svg><a href="sms:+61403786227">Text Leigh</a></li>
           <li id="emailRow" hidden><svg><use href="#i-mail"/></svg><a id="emailLink" href="#"></a></li>
+          <li><svg><use href="#i-ig"/></svg><a href="https://www.instagram.com/_leigh_fitness_/" target="_blank" rel="noopener">@_leigh_fitness_</a></li>
           <li><svg><use href="#i-pin"/></svg>Goodlife Gym, Maroochydore</li>
           <li><svg><use href="#i-home"/></svg>Home visits around Maroochydore</li>
           <li><svg><use href="#i-msg"/></svg>Call or text Leigh for session times</li>
@@ -537,7 +638,7 @@ footer .legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
     <p class="line"><b>Train</b> at Goodlife Maroochydore or at home</p>
     <p class="line"><b>Programs</b> All In, Coached, Self-Led, small group and single sessions</p>
     <div class="links">
-      <a href="#training">Training</a><a href="#programs">Programs</a><a href="#leigh">About Leigh</a><a href="#contact">Contact</a><a href="tel:+61403786227">0403 786 227</a>
+      <a href="#training">Training</a><a href="#who">Over-50s &amp; injuries</a><a href="#programs">Programs</a><a href="#leigh">About Leigh</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><a href="https://www.instagram.com/_leigh_fitness_/" target="_blank" rel="noopener">Instagram</a><a href="tel:+61403786227">0403 786 227</a>
     </div>
     <div class="legal"><span>© <span id="yr">2026</span> Leigh Fitness · Site by 360 Media Group</span><span>Maroochydore · Sunshine Coast</span></div>
   </div>
@@ -577,18 +678,25 @@ const SITE = {
     // { name: "Name", note: "Pro bodybuilder, trained with Leigh 8 years", photo: "images/client-1.jpg" },
   ],
 
-  clips: [                     // vertical videos for the "Real sessions, filmed." row
-    // { src: "videos/clip-01.mp4", poster: "images/clip-01.jpg", title: "Leg day", note: "Goodlife" },
+  clips: [                     // the "Real sessions, filmed." row (landscape clips)
+    { src: "videos/session-01.mp4", poster: "images/session-01.jpg", title: "Kettlebell deadlifts, coached" },
+    { src: "videos/session-02.mp4", poster: "images/session-02.jpg", title: "Partner circuit" },
+    { src: "videos/session-03.mp4", poster: "images/session-03.jpg", title: "Bar rows" },
+    { src: "videos/session-04.mp4", poster: "images/session-04.jpg", title: "Core and the rower" },
+    { src: "videos/session-05.mp4", poster: "images/session-05.jpg", title: "Bodyweight rows" },
+    { src: "videos/session-06.mp4", poster: "images/session-06.jpg", title: "Leigh on the landmine" },
+    { src: "videos/session-07.mp4", poster: "images/session-07.jpg", title: "Setting up the next round" }
   ],
+  heroVideo: "videos/hero-loop.mp4",
 
   cards: {                     // background photo or video for each card (optional)
-    gym:   null,               // e.g. "images/gym.jpg" or "videos/gym.mp4"
-    home:  null,
-    group: null,
-    food:  null
+    gym:   "videos/card-gym.mp4",
+    home:  "videos/card-home.mp4",
+    group: "videos/card-group.mp4",
+    food:  "videos/card-food.mp4"
   },
 
-  portrait: null               // e.g. "images/leigh.jpg"
+  portrait: "images/leigh.jpg"
 };
 /* =============================================== */
 
@@ -645,7 +753,7 @@ if (SITE.clips.length) {
     const b = document.createElement("button");
     b.className = "clip"; b.type = "button";
     b.setAttribute("aria-label", "Play " + (c.title || "clip") + " full screen");
-    b.innerHTML = `<video muted loop playsinline preload="metadata" ${c.poster ? `poster="${c.poster}"` : ""} src="${c.src}"></video>` +
+    b.innerHTML = `<video muted loop playsinline preload="none" ${c.poster ? `poster="${c.poster}"` : ""} src="${c.src}"></video><span class="play"><svg><use href="#i-play"/></svg></span>` +
       (c.title ? `<span class="cap">${c.title}${c.note ? ` <small>· ${c.note}</small>` : ""}</span>` : "");
     b.addEventListener("click", () => openLB(c.src));
     deck.appendChild(b);
@@ -677,6 +785,18 @@ function closeLB(){ lbv.pause(); lbv.removeAttribute("src"); lbv.load(); lb.clas
 lb.querySelector(".x").onclick = closeLB;
 lb.addEventListener("click", e => { if (e.target === lb) closeLB(); });
 addEventListener("keydown", e => { if (e.key === "Escape" && lb.classList.contains("open")) closeLB(); });
+
+/* Hero background video */
+if (SITE.heroVideo && !matchMedia("(prefers-reduced-motion:reduce)").matches) {
+  const hv = $("#heroVid"); hv.src = SITE.heroVideo; hv.play().catch(()=>{});
+}
+/* Reviews */
+const rb = $("#moreRevs");
+rb.addEventListener("click", () => {
+  const all = $("#revs").classList.toggle("all");
+  rb.setAttribute("aria-expanded", all);
+  rb.firstChild.textContent = all ? "Show fewer" : "Read all 14";
+});
 
 /* Card backgrounds and portrait */
 document.querySelectorAll(".card[data-media]").forEach(card => {
